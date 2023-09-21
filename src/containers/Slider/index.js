@@ -8,11 +8,14 @@ const Slider = () => {
   const { data } = useData();
   const [index, setIndex] = useState(0);
   const byDateDesc = data?.focus.sort((evtA, evtB) =>
-    new Date(evtA.date) < new Date(evtB.date) ? -1 : 1
+    new Date(evtB.date) < new Date(evtA.date) ? -1 : 1
   );
+  /* Inversion du tri evtB et evtA pour trier les events par ordre décroissant */
+
+  /* Ajout de "-1" à la fonction nextCard : si l'index est inferieur au tableau byDateDesc il passe au suivant sinon il revient à 0  */
   const nextCard = () => {
     setTimeout(
-      () => setIndex(index < byDateDesc.length ? index + 1 : 0),
+      () => setIndex(index < byDateDesc.length -1 ? index + 1 : 0),
       5000
     );
   };
@@ -23,8 +26,7 @@ const Slider = () => {
     <div className="SlideCardList">
       {byDateDesc?.map((event, idx) => (
         <>
-          <div
-            key={event.title}
+          <div key={event.title}
             className={`SlideCard SlideCard--${
               index === idx ? "display" : "hide"
             }`}
@@ -42,10 +44,13 @@ const Slider = () => {
             <div className="SlideCard__pagination">
               {byDateDesc.map((_, radioIdx) => (
                 <input
-                  key={`${event.id}`}
+                /* une key doit être unique : modif de la clef ci-dessous , radioIdx +1 permet une key unique pour chaque radio */
+                  key={`${radioIdx +1}`}
                   type="radio"
                   name="radio-button"
-                  checked={idx === radioIdx}
+                  checked={index === radioIdx}
+                  readOnly
+                  /* Pour que les bullets suivent le carousel, remplacement de idx par index (verifie quel bouton radio doit etre coché) */
                 />
               ))}
             </div>
