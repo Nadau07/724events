@@ -14,11 +14,17 @@ const Slider = () => {
 
   /* Ajout de "-1" à la fonction nextCard : si l'index est inferieur au tableau byDateDesc il passe au suivant sinon il revient à 0  */
   const nextCard = () => {
-    setTimeout(
-      () => setIndex(index < byDateDesc.length -1 ? index + 1 : 0),
-      5000
-    );
-  };
+    if (byDateDesc){
+      setTimeout(
+        () => setIndex(index < byDateDesc.length -1 ? index + 1 : 0),
+        5000
+      );
+    };
+    }
+
+    /* suppression de l'avertissement de la console : en rajoutant une condition "if" pour verifier que la valeur
+    byDateDesc est bien défini */
+   
   useEffect(() => {
     nextCard();
   });

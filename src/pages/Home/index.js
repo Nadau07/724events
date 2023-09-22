@@ -12,8 +12,19 @@ import Form from "../../containers/Form";
 import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
+
+/* resultat debug : last ne renvoi pas de donnée (voir /DataContext) , last remplacé par data */
 const Page = () => {
-  const {last} = useData()
+  const {data} = useData()
+  const eventData = data?.events[0] || {}; 
+  // Crée un objet vide si data?.events[0] est undefined
+ /* console.log(data) : donne bien un tableau des events */
+
+ /* console.log("data:", data);
+console.log("data.events[0].cover:", data?.events[0]?.cover);
+console.log("title:", data?.events[0]?.title);
+console.log("date:", new Date(data?.events[0]?.date)); */
+
   return <>
     <header>
       <Menu />
@@ -116,13 +127,20 @@ const Page = () => {
     <footer className="row">
       <div className="col presta">
         <h3>Notre derniére prestation</h3>
-        <EventCard
-          imageSrc={last?.cover}
-          title={last?.title}
-          date={new Date(last?.date)}
-          small
-          label="boom"
-        />
+  
+
+        
+
+<EventCard
+  imageSrc={eventData.cover || ""}
+  title={eventData.title || ""}
+  date={new Date(eventData.date || "")}
+  small
+  label="boom"
+/>
+    
+        {/* || '' <= permet de rajouter une valeur vide si valeur indefini
+         , supprime l'avertissement de la console */}
       </div>
       <div className="col contact">
         <h3>Contactez-nous</h3>
