@@ -22,7 +22,7 @@ const Slider = () => {
     };
     }
 
-    /* suppression de l'avertissement de la console : en rajoutant une condition "if" pour verifier que la valeur
+    /* suppression de l'avertissement de la console : en rajoutant une condition "if" pour verifier que
     byDateDesc est bien défini */
    
   useEffect(() => {
