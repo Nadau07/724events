@@ -2,8 +2,10 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useState } from "react";
 import PropTypes from "prop-types";
-
 import "./style.scss";
+
+
+/* Composant permettant de creer une liste déroulante */
 
 const Select = ({
   selection,

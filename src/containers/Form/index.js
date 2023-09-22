@@ -17,7 +17,7 @@ const Form = ({ onSuccess, onError }) => {
         await mockContactApi();
         setSending(false);
         onSuccess();
-        /* onSuccess etait manquant , la fonction handleSuccess n'était pas appelé lorsque l'envoi réussissait */
+        /* onSuccess etait manquant , la fonction n'était pas appelé lorsque l'envoi réussissait */
       } catch (err) {
         setSending(false);
         onError(err);
