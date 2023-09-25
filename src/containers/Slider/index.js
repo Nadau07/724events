@@ -50,8 +50,8 @@ const Slider = () => {
             <div className="SlideCard__pagination">
               {byDateDesc.map((_, radioIdx) => (
                 <input
-                /* une key doit être unique : modif de la clef ci-dessous , radioIdx +1 permet une key unique pour chaque radio */
-                  key={`${radioIdx +1}`}
+                /* une key doit être unique : modif de la clef ci-dessous */
+                  key={`${_.title}`}
                   type="radio"
                   name="radio-button"
                   checked={index === radioIdx}

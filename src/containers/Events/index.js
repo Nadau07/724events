@@ -14,13 +14,31 @@ const EventList = () => {
   const [type, setType] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
 
+  /* const [typeSelect, setTypeSelect] = useState(0); */
+  /* stocke le type que l'utilisateur va selectionner, est de base a 0 */ 
 
+console.log(data , "data")
+
+const eventTypes = data?.events?.map(event => event.type) || [];
+/* Je recupere type de la liste des data */
+
+console.log(eventTypes , "types")
+
+const changeType = (evtType) => {
+  setCurrentPage(1);
+  setType(evtType);
+  /* setTypeSelect(evtType); */
+};
+
+
+/* PROBLEME : ne filtre pas par type */
   const filteredEvents = (
     (!type
       ? data?.events
       : data?.events) || []
   ).filter((event, index) => {
     if (
+      (!type || event.type === type) &&
       (currentPage - 1) * PER_PAGE <= index &&
       PER_PAGE * currentPage > index
     ) {
@@ -29,11 +47,7 @@ const EventList = () => {
     return false;
   });
 
-  
-  const changeType = (evtType) => {
-    setCurrentPage(1);
-    setType(evtType);
-  };
+ 
   const pageNumber = Math.floor((filteredEvents?.length || 0) / PER_PAGE) + 1;
   const typeList = new Set(data?.events.map((event) => event.type));
   return (
