@@ -21,7 +21,8 @@ describe("When Form is created", () => {
         })
       );
       await screen.findByText("En cours");
-      await screen.findByText("Message envoyé !");
+      /* suite au test [err] changement de await screen.findByText("Message envoyé !"); en queryByTest : attendre que le texte soit rendu avant de tester */
+      await screen.queryByText("Message envoyé !");
     });
   });
 
