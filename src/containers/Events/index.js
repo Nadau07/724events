@@ -19,7 +19,6 @@ const EventList = () => {
 
 /* console.log(data , "data") */
 
-const eventTypes = data?.events?.map(event => event.type) || [];
 /* Je recupere type de la liste des data */
 
 /* console.log(eventTypes , "types") */
