@@ -17,12 +17,47 @@ const EventList = () => {
   /* const [typeSelect, setTypeSelect] = useState(0); */
   /* stocke le type que l'utilisateur va selectionner, est de base a 0 */ 
 
-console.log(data , "data")
+/* console.log(data , "data") */
 
 const eventTypes = data?.events?.map(event => event.type) || [];
 /* Je recupere type de la liste des data */
 
-console.log(eventTypes , "types")
+/* console.log(eventTypes , "types") */
+
+
+/* PROBLEME : ne filtre pas par type
+
+const filteredEvents = (
+  (!type
+    ? data?.events
+    : data?.events) || []
+).filter((event, index) => {
+  if (
+    (!type || event.type === type) &&
+    (currentPage - 1) * PER_PAGE <= index &&
+    PER_PAGE * currentPage > index
+  ) {
+    return true;
+  }
+  return false;
+});
+*/
+const filteredEvents = (
+  (!type
+    ? data?.events
+    // Ajout d'un filtre supplémentaire
+    // type de l'événement strictement = à la valeur de 'type'
+    : data?.events.filter((event) => event.type === type)) || []
+).filter((event, index) => {
+  if (
+    (currentPage - 1) * PER_PAGE <= index &&
+    PER_PAGE * currentPage > index
+  ) {
+    return true;
+  }
+  return false;
+});
+
 
 const changeType = (evtType) => {
   setCurrentPage(1);
@@ -30,22 +65,6 @@ const changeType = (evtType) => {
   /* setTypeSelect(evtType); */
 };
 
-
-/* PROBLEME : ne filtre pas par type */
-  const filteredEvents = (
-    (!type
-      ? data?.events
-      : data?.events) || []
-  ).filter((event, index) => {
-    if (
-      (!type || event.type === type) &&
-      (currentPage - 1) * PER_PAGE <= index &&
-      PER_PAGE * currentPage > index
-    ) {
-      return true;
-    }
-    return false;
-  });
 
  
   const pageNumber = Math.floor((filteredEvents?.length || 0) / PER_PAGE) + 1;

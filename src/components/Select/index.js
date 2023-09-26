@@ -18,10 +18,12 @@ const Select = ({
   const [value, setValue] = useState();
   const [collapsed, setCollapsed] = useState(true);
   const changeValue = (newValue) => {
-    onChange();
+    onChange(newValue);
     setValue(newValue);
     setCollapsed(newValue);
   };
+
+  /*    onChange(newValue) : etait manquant pour que le filtrage s'execute correctement */
   return (
     <div className={`SelectContainer ${type}`} data-testid="select-testid">
       {label && <div className="label">{label}</div>}
