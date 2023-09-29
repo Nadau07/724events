@@ -17,15 +17,17 @@ const MONTHS = {
   };
   
 
-describe("Date helper", () => {
-    describe("When getMonth is called", () => {
-        it("the function return janvier for 2022-01-01 as date", () => {
-            expect(MONTHS[new Date("2022-01-01").getMonth()]).toBe("janvier");
-            // verifie si la date corresponds a Janvier quand on appel getMonth
-        });
-        it("the function return juillet for 2022-07-08 as date", () => {
-            expect(MONTHS[new Date("2022-07-08").getMonth()]).toBe("juillet");
-            // même principe avec le mois de Juillet
+  describe("Date helper", () => {
+    const testCases = [
+        { date: "2022-01-01", expectedMonth: "janvier" },
+        { date: "2022-07-08", expectedMonth: "juillet" },
+    ];
+
+    testCases.forEach((testCase) => {
+        it(`When getMonth is called, it returns ${testCase.expectedMonth} for ${testCase.date} as date`, () => {
+            expect(MONTHS[new Date(testCase.date).getMonth()]).toBe(testCase.expectedMonth);
         });
     });
-})
+});
+
+// TEST qui verifie si les dates correspondent bien quand on execute getMonth

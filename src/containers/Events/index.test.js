@@ -45,6 +45,7 @@ describe("When Events is created", () => {
         <Events />
       </DataProvider>
     );
+
     await screen.findByText("avril");
   });
   describe("and an error occured", () => {
