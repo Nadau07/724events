@@ -24,3 +24,45 @@ describe("When Menu is created", () => {
     });
   });
 });
+
+describe("and a click is triggered on 'Nos services' button", () => {
+  it("document location  href change", async () => {
+    render(<Menu />);
+    fireEvent(
+      await screen.findByText("Nos services"),
+      new MouseEvent("click", {
+        cancelable: true,
+        bubbles: true,
+      })
+    );
+    expect(window.document.location.hash).toEqual("#nos-services");
+  });
+});
+
+describe("and a click is triggered on 'Nos réalisations' button", () => {
+  it("document location  href change", async () => {
+    render(<Menu />);
+    fireEvent(
+      await screen.findByText("Nos réalisations"),
+      new MouseEvent("click", {
+        cancelable: true,
+        bubbles: true,
+      })
+    );
+    expect(window.document.location.hash).toEqual("#nos-realisations");
+  });
+});
+
+describe("and a click is triggered on 'Notre équipe' button", () => {
+  it("document location  href change", async () => {
+    render(<Menu />);
+    fireEvent(
+      await screen.findByText("Notre équipe"),
+      new MouseEvent("click", {
+        cancelable: true,
+        bubbles: true,
+      })
+    );
+    expect(window.document.location.hash).toEqual("#notre-equipe");
+  });
+});
