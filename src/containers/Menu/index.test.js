@@ -25,6 +25,9 @@ describe("When Menu is created", () => {
   });
 });
 
+
+// AJOUT DE TEST POUR LE MENU DE NAVIGATION
+
 describe("and a click is triggered on 'Nos services' button", () => {
   it("document location  href change", async () => {
     render(<Menu />);
