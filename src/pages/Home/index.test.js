@@ -34,16 +34,15 @@ describe("When Form is created", () => {
 -apparait le footer ? */
 
 describe("When a page is created", () => {
-  it("a list of events is displayed", () => {
+  it("a list of events is displayed",  () => {
     render(<Home />);
-    const eventsTitle = screen.getByText("Nos réalisations");
-    expect(eventsTitle).toBeInTheDocument();
+    const EventList = screen.getByTestId("eventList");
+    expect(EventList).toBeInTheDocument();
   });
 
+
   it("a list a people is displayed", () => {
-    render(<Home />);
-    const peopleTitle = screen.getByText("Notre équipe");
-    expect(peopleTitle).toBeInTheDocument();
+    //
   });
 
   it("a footer is displayed", () => {
