@@ -63,7 +63,7 @@ console.log("date:", new Date(data?.events[0]?.date)); */
         </div>
       </section>
       <section className="EventsContainer">
-        <h2 className="Title" id="nos-realisations">Nos réalisations</h2>
+        <h2 className="Title" id="nos-realisations" data-testid="eventList">Nos réalisations</h2>
         <EventList />
       </section>
       <section className="PeoplesContainer">
