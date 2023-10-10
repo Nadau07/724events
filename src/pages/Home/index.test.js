@@ -30,7 +30,6 @@ describe("When Form is created", () => {
 
 /*  TEST INTEGRATION : Quand la page se charge : 
 - apparait les evenements ?
--apparait les personnes de l'équipe ?
 -apparait le footer ? */
 
 describe("When a page is created", () => {
@@ -39,18 +38,9 @@ describe("When a page is created", () => {
     const EventList = screen.getByTestId("eventList");
     expect(EventList).toBeInTheDocument();
   });
-
-
-  it("a list a people is displayed", () => {
-    //
-  });
-
   it("a footer is displayed", () => {
   render(<Home />);
     const footer = screen.getByText("Contactez-nous");
     expect(footer).toBeInTheDocument();
   });
-  it("an event card, with the last event, is displayed", () => {
-    // to implement
-  })
 });
