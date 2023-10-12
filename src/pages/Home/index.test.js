@@ -21,25 +21,19 @@ describe("When Form is created", () => {
         })
       );
       await screen.findByText("En cours");
-      /* suite au test [err] changement de await screen.findByText("Message envoyé !"); en queryByTest : attendre que le texte soit rendu avant de tester */
       await screen.queryByText("Message envoyé !");
     });
   });
-
 });
 
-/*  TEST INTEGRATION : Quand la page se charge : 
-- apparait les evenements ?
--apparait le footer ? */
-
 describe("When a page is created", () => {
-  it("a list of events is displayed",  () => {
+  it("a list of events is displayed", () => {
     render(<Home />);
     const EventList = screen.getByTestId("eventList");
     expect(EventList).toBeInTheDocument();
   });
   it("a footer is displayed", () => {
-  render(<Home />);
+    render(<Home />);
     const footer = screen.getByText("Contactez-nous");
     expect(footer).toBeInTheDocument();
   });

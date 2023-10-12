@@ -1,5 +1,5 @@
 /**
- * TESTS UNITAIRES : Gestion des dates (Quand getMonth est appelé)
+ * TEST UNITAIRE : Gestion des dates
  */
 const MONTHS = {
     0: "janvier",
@@ -30,4 +30,3 @@ const MONTHS = {
     });
 });
 
-// TEST qui verifie si les dates correspondent bien quand on execute getMonth

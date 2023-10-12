@@ -4,9 +4,6 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import "./style.scss";
 
-
-/* Composant permettant de creer une liste déroulante */
-
 const Select = ({
   selection,
   onChange,
@@ -23,7 +20,6 @@ const Select = ({
     setCollapsed(newValue);
   };
 
-  /*    onChange(newValue) : etait manquant pour que le filtrage s'execute correctement */
   return (
     <div className={`SelectContainer ${type}`} data-testid="select-testid">
       {label && <div className="label">{label}</div>}
@@ -92,7 +88,7 @@ Select.propTypes = {
   titleEmpty: PropTypes.bool,
   label: PropTypes.string,
   type: PropTypes.string,
-}
+};
 
 Select.defaultProps = {
   onChange: () => null,
@@ -100,6 +96,6 @@ Select.defaultProps = {
   label: "",
   type: "normal",
   name: "select",
-}
+};
 
 export default Select;
